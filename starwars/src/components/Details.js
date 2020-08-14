@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {BASE_URL, API_KEY} from '../constants'
+import {BASE_URL} from '../constants'
 import axios from 'axios'
 import styled,{keyframes} from 'styled-components'
 
@@ -21,16 +21,17 @@ h2{
 }
 `
 export default function Details(props){
-    const {CharacterId, close} =props;
+    const {CharacterId, close} = props;
     const [details, setDetails]= useState(null)
 
     useEffect(()=>{
-        axios.get(`${BASE_URL}/Characters/${CharacterId}?api_key=${API_KEY}`)
+        axios.get(`${BASE_URL}/Character/${CharacterId}`)
         .then(res=>{
             setDetails(res.data) })
+            console.log()
             .catch(err=>{
                 console.log(err)
-            },[CharacterId]);
+            },[1]);
     })
  return(
      <StyledDetails color="gold"
@@ -40,7 +41,7 @@ export default function Details(props){
              details && <>
              <p>{details.name} is {details.age}
              </p>
-             {name}Has a list of episodes:
+             {details.name}Has a list of episodes:
              <ul>
                  {
                  details.episode.map((episode) => <li

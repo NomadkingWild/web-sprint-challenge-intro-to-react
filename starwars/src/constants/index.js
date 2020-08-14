@@ -1,2 +1,1 @@
-export const BASE_URL ='https://rickandmortyapi.com'
-export const API_KEY = '1'
+export const BASE_URL ='https://rickandmortyapi.com/api'

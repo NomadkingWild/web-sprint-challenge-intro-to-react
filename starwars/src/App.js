@@ -4,6 +4,8 @@ import {BASE_URL, API_KEY} from './constants'
 import Character from './components/Character'
 import Details from './components/Details'
 import './App.css';
+import Image from './images/rm-bg.jpg'
+import styled from 'styled-components';
 
 export default function App () {
   const[character, setCharacter]= useState([]);
@@ -20,29 +22,33 @@ const closeDetails= () =>{
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 useEffect(()=>{
-  axios.get(`${BASE_URL}/characters?api_key=${API_KEY}`)
-  .then(res=>{
+  axios.get(`${BASE_URL}/character`)
+  .then(res =>{
+    console.log(res)
     setCharacter(res.data)
   })
   .catch(err=>{
     console.log(err)
   })
+  .finally(()=>{
+
+  })
   
 }, [])
-  return (
-    <div className="App">
-      <h1 className="Header">Character</h1>
-      {
-        character.map((fr, idx)=>{
-          return <Character big={idx % 2 === 0} key={fr.id}info={fr} action={openDetails} actionText='see details' />
-        
-      })
-    }
-      {
-        currentCharacter && <Character characterId={currentCharacter} close={closeDetails} />
-      }
-      </div>
+useEffect(()=>{
+  console.log("test", character)
+},[character])
 
+  return (
+  
+    <div className="App">
+      <h1 className="Header">Characters</h1>
+        <div>
+        <Character />
+        <Details />
+      </div>
+      </div>
+      
   );
 }
 

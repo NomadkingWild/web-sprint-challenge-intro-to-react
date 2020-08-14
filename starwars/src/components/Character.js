@@ -7,14 +7,15 @@ width: 80%;
 display:flex;
 justify-content:space-evenly;
 color: ${props => props.color || props.theme.primaryColor};
-margin: ${props =>props.theme.margin.small};
-font-size: ${props=props.big ? '1rem':'0.5rem'};
+margin: ${props =>props.theme.margins.small};
+font-size: ${props => props.big ? '1rem':'0.5rem'};
 @media (max-width: ${props=>props.theme.tabletBreakpoint}){
     width:100%100%;
 }
+
 button {
 background-color:${props => props.theme.secondaryColor};
-color: ${props=>{
+color: ${props => {
     const {theme} = props;
     return theme.white;
 }};
@@ -25,11 +26,11 @@ color: ${props=>{
     }
 }
 `
-export default function Character({big, info, action, actionText}){
+export default function Character({big, character, action, actionText}){
     return(
         <StyledCharacter big={big}>
-            {info.name}
-            <button onClick={()=> action(info.id)}>
+            <h1>{character.name}</h1>
+            <button onClick={()=> action(character.id)}>
                 {actionText}
             </button>
         </StyledCharacter>
