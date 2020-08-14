@@ -26,19 +26,19 @@ export default function Details(props){
 
     useEffect(()=>{
         axios.get(`${BASE_URL}/Character/${CharacterId}`)
-        .then(res=>{
-            setDetails(res.data)})
+        .then(res=>{ setDetails(res.data)})
             console.log()
             .catch(err=>{
                 console.log(err)
             },[CharacterId]);
     })
  return(
-     <StyledDetails color="gold"
+     <StyledDetails color= "gold"
      className='container'>
          <h2>Details:</h2>
          {
-             details && <>
+             details && 
+             <>
              <p>{details.name} is {details.age}
              </p>
              {details.name}Has a list of episodes:

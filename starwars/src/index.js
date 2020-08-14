@@ -7,7 +7,7 @@ import {ThemeProvider} from "styled-components"
 
 import './App.css'
 
-ReactDOM.render(<ThemeProvider theme={theme}>
+ReactDOM.render(<ThemeProvider theme = {theme}>
     <App />
   </ThemeProvider>,
   document.querySelector('#root'));
