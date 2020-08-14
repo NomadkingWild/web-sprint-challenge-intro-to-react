@@ -3,7 +3,7 @@ import {BASE_URL, API_KEY} from '../constants'
 import axios from 'axios'
 import styled,{keyframes} from 'styled-components'
 
-const kf= keyframes`
+const kf = keyframes`
 100%{
     opacity:1;
 }
