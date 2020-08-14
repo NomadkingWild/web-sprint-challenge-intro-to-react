@@ -5,7 +5,7 @@ import Character from './components/Character'
 import Details from './components/Details'
 import './App.css';
 import Image from './images/rm-bg.jpg'
-import styled from 'styled-components';
+
 
 export default function App () {
   const[character, setCharacter]= useState([]);
@@ -22,7 +22,7 @@ const closeDetails= () =>{
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 useEffect(()=>{
-  axios.get(`${BASE_URL}/character`)
+  axios.get(`${BASE_URL}/character/`)
   .then(res =>{
     console.log(res)
     setCharacter(res.data)

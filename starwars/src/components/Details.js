@@ -27,11 +27,11 @@ export default function Details(props){
     useEffect(()=>{
         axios.get(`${BASE_URL}/Character/${CharacterId}`)
         .then(res=>{
-            setDetails(res.data) })
+            setDetails(res.data)})
             console.log()
             .catch(err=>{
                 console.log(err)
-            },[1]);
+            },[CharacterId]);
     })
  return(
      <StyledDetails color="gold"
