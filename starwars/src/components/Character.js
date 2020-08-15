@@ -6,16 +6,19 @@ import theme from '../theme'
 import styled from 'styled-components'
 
 const StyledCharacter = styled.div`
-width: 80%;
+width: 90%;
 display:flex;
-flex-direction: column;
+flex-flow: column;
 justify-content:space-evenly;
+border: 3px dotted black;
 color: ${props => props.color || props.theme.primaryColor};
 margin: ${props =>props.theme.margins.small};
 font-size: ${props => props.big ? '1rem':'0.5rem'};
 @media (max-width: ${props=> props.theme.tabletBreakpoint}){
     width:100%100%;
 }
+
+
 
 button {
 background-color:${props => props.theme.secondaryColor};
@@ -30,6 +33,12 @@ color: ${props => {
     }
 }
 `
+const StyledP = styled.p`
+margin-right: 10%;
+margin-left: 10%;
+text-align:center;
+color: "evergreen";
+`
 export default function Character({info}){
 console.log("test1",info)
     return(
@@ -38,7 +47,7 @@ console.log("test1",info)
             <h2>Id number: {info.id}</h2>
             <h3>Species: {info.species}</h3>
             <p> Status: {info.status}</p>
-            <p className = "epi">is in the following episodes: {info.episode}</p>
+            <StyledP>is the following: {info.gender}</StyledP>
         </StyledCharacter>
     )
 }

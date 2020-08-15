@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import {BASE_URL, API_KEY} from './constants'
+import {BASE_URL} from './constants'
 import Character from './components/Character'
 import Details from './components/Details'
 import './App.css';
+import theme from "./theme";
 import Image from './images/rm-bg.jpg'
 
 
