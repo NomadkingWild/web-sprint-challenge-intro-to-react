@@ -1,1 +1,53 @@
 // Write your Character component here
+import {BASE_URL} from '../constants'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios'
+import theme from '../theme'
+import styled from 'styled-components'
+
+const StyledCharacter = styled.div`
+width: 90%;
+display:flex;
+flex-flow: column;
+justify-content:space-evenly;
+border: 3px dotted black;
+color: ${props => props.color || props.theme.primaryColor};
+margin: ${props =>props.theme.margins.small};
+font-size: ${props => props.big ? '1rem':'0.5rem'};
+@media (max-width: ${props=> props.theme.tabletBreakpoint}){
+    width:100%100%;
+}
+
+
+
+button {
+background-color:${props => props.theme.secondaryColor};
+color: ${props => {
+    const {theme} = props;
+    return theme.white;
+}};
+    transition: all 0.5s ease-in-out;
+&:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale()(2.0);
+    }
+}
+`
+const StyledP = styled.p`
+margin-right: 10%;
+margin-left: 10%;
+text-align:center;
+color: "evergreen";
+`
+export default function Character({info}){
+console.log("test1",info)
+    return(
+        <StyledCharacter big={theme}>
+            <h1>{info.name}</h1>
+            <h2>Id number: {info.id}</h2>
+            <h3>Species: {info.species}</h3>
+            <p> Status: {info.status}</p>
+            <StyledP>is the following: {info.gender}</StyledP>
+        </StyledCharacter>
+    )
+}
